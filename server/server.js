@@ -18,14 +18,15 @@ io.on('connection', (socket) => {
   //   subject: "Some email title here",
   //   name: 'Kristjan'
   // });
-  socket.emit('newMessage', {
-    from: "Kristjan",
-    text: 'Hi',
-    createdAt: 12345
-  })
+  
 
   socket.on('createMessage', function(message) {
     console.log('createMessage', message);
+    io.emit('newMessage', {
+      from: message.from,
+      text: message.text,
+      createdAt: new Date().getTime()
+    });
   });
 
   socket.on('disconnect', () => {
