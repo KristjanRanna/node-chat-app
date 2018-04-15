@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node server/server.js"
+    "start": "node server/server.js",
+    "test": "jest server/**/*.test.js",
+    "test-watch": "npm run test -- --watch"
   },
   "engines": {
     "start": "nodemon server/server.js",
@@ -15,5 +17,10 @@
   "dependencies": {
     "express": "^4.16.3",
     "socket.io": "^2.1.0"
+  },
+  "devDependencies": {
+    "expect": "^22.4.3",
+    "jest": "^22.4.3",
+    "nodemon": "^1.17.3"
   }
 }
